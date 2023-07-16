@@ -48,9 +48,11 @@
   </section>
 
   <script>
+    
     let calculation = localStorage.getItem("calculation") || ''
-    const inputField = document.querySelector('.input-field')
+    inputField = document.querySelector('.input-field')
     // const result = document.querySelector('.input-field')
+    inputField.value = calculation; // set the calculated value into value of input-field
 
     function updateCalculation(value) {
       calculation += value

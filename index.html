@@ -10,67 +10,73 @@
 </head>
 
 <body>
-  <div class="container" >
-
-    <div class="number-section">
-      <div>
-        <button class="number-btn" onclick="calculation += '1'; console.log(calculation)">
-          1
-        </button>
-        <button class="number-btn" onclick="calculation += '2'; console.log(calculation)">
-          2
-        </button>
-        <button class="number-btn" onclick="calculation += '3'; console.log(calculation)">
-          3
-        </button>
+  <section class="container">
+    <div class="calculator">
+      <div class="input-screen">
+        <input class="input-field" type="text">
       </div>
-      <div>
-        <button class="number-btn" onclick="calculation += '4'; console.log(calculation)">
-          4
-        </button>
-        <button class="number-btn" onclick="calculation += '5'; console.log(calculation)">
-          5
-        </button>
-        <button class="number-btn" onclick="calculation += '6'; console.log(calculation)">
-          6
-        </button>
+      <div class="number-section">
+        <div>
+          <button class="number-btn" onclick="updateCalculation('1')">1</button>
+          <button class="number-btn" onclick="updateCalculation('2')">2</button>
+          <button class="number-btn" onclick="updateCalculation('3')">3</button>
+          <button class="cal-btn" onclick="updateCalculation('+')">+</button>
+        </div>
+        <div>
+          <button class="number-btn" onclick="updateCalculation('4')">4</button>
+          <button class="number-btn" onclick="updateCalculation('5')">5</button>
+          <button class="number-btn" onclick="updateCalculation('6')">6</button>
+          <button class="cal-btn" onclick="updateCalculation('-')">-</button>
+        </div>
+        <div>
+          <button class="number-btn" onclick="updateCalculation('7')">7</button>
+          <button class="number-btn" onclick="updateCalculation('8')">8</button>
+          <button class="number-btn" onclick="updateCalculation('9')">9</button>
+          <button class="cal-btn" onclick="updateCalculation('*')">x</button>
+        </div>
+        <div>
+          <button class="number-btn" onclick="updateCalculation('0')">0</button>
+          <button class="number-btn" onclick="updateCalculation('.')">.</button>
+          <button class="AC-btn" onclick="removeCalculation()">AC</button>
+          <button class="cal-btn" onclick="updateCalculation('/')">÷</button>
+        </div>
       </div>
-      <div>
-        <button class="number-btn" onclick="calculation += '7'; console.log(calculation)">
-          7
-        </button>
-        <button class="number-btn" onclick="calculation += '8'; console.log(calculation)">
-          8
-        </button>
-        <button class="number-btn" onclick="calculation += '9'; console.log(calculation)">
-          9
-        </button>
-      </div>
-      <div>
-        <button class="number-btn" onclick="calculation += '0'; console.log(calculation)">
-          0
-        </button>
-        <button class="number-btn" onclick="calculation += '.'; console.log(calculation)">
-          .
-        </button>
-        <button class="AC-btn" onclick="calculation = ''; console.log(0)">
-          AC
-        </button>
+      <div class="cal-section">
+        <button class="cal-btn" onclick="result()">=</button>
       </div>
     </div>
-    <div class="cal-section">
-      <button class="cal-btn" onclick="calculation += ' + '; console.log(calculation)">+</button>
-      <button class="cal-btn" onclick="calculation += ' - '; console.log(calculation)">-</button>
-      <button class="cal-btn" onclick="calculation += ' * '; console.log(calculation)">x</button>
-      <button class="cal-btn" onclick="calculation += ' / '; console.log(calculation)">÷</button>
-      <button class="cal-btn" onclick="calculation = eval(calculation); console.log(calculation);">
-        =
-      </button>
-    </div>
-  </div>
+  </section>
 
   <script>
-    let calculation = "";
+    let calculation = localStorage.getItem("calculation") || ''
+    const inputField = document.querySelector('.input-field')
+    // const result = document.querySelector('.input-field')
+
+    function updateCalculation(value) {
+      calculation += value
+      console.log(calculation);
+      inputField.value = calculation
+      localStorage.setItem("calculation", calculation);
+    }
+
+    function removeCalculation() {
+      calculation = ""
+      console.log(0);
+      inputField.value = calculation
+      localStorage.setItem("calculation", calculation);
+    }
+
+    function result() {
+      if (!calculation) {
+        return 0;
+      } else {
+        calculation = eval(calculation);
+        console.log(calculation);
+        inputField.value = calculation
+        localStorage.setItem("calculation", calculation)
+      }
+    }
+
   </script>
 </body>
 

@@ -2,28 +2,49 @@
 * {
   font-family: VT323;
   font-size: 25px;
+  box-sizing: border-box;
 }
 
 button:active {
   position: relative;
   box-shadow: none;
-  right: -5px;
+  right: -5px; 
   bottom: -5px;
 }
 
 .container {
-  border: 2px solid black;
+  /* border: 2px solid black;
   background: rgb(255, 134, 154);
-  border-radius: 10px;
+  border-radius: 10px; */
   /* padding: 20px; */
-  height: 300px;
-  width: 300px;
+  height: 500px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.number-section {
+.calculator {
+  border: 2px solid black;
+  background: rgb(255, 134, 154);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input-screen {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-screen input{
+  border: 2px solid black;
+  background: rgb(153, 255, 106);
+  border-radius: 10px;
+  flex: auto; /* same with -> width: 100%; */
+  outline: none;
+  font-size: 30px;
+  text-align: right;
+  padding: 10px;
 }
 
 .number-btn {
@@ -32,7 +53,8 @@ button:active {
   background: yellow;
   border-radius: 7px;
   border: 3px solid black;
-  box-shadow: 5px 5px 0px black; 
+  box-shadow: 5px 5px 0px black;
+  cursor: pointer;
 }
 
 .AC-btn {
@@ -42,6 +64,7 @@ button:active {
   border-radius: 7px;
   border: 3px solid black;
   box-shadow: 5px 5px 1px black;
+  cursor: pointer;
 }
 
 .cal-section {
@@ -57,4 +80,5 @@ button:active {
   border: 3px solid black;
   box-shadow: 5px 5px 0px black;
   padding: 8.5px 15px;
+  cursor: pointer;
 }

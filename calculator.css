@@ -28,11 +28,13 @@ button:active {
   background: rgb(255, 134, 154);
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 5px 5px 0px black;
 }
 
 .input-screen {
   display: flex;
   justify-content: flex-end;
+  
 }
 
 .input-screen input{

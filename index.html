@@ -62,20 +62,24 @@
     }
 
     function removeCalculation() {
-      calculation = ""
-      console.log(0);
-      inputField.value = calculation
-      localStorage.setItem("calculation", calculation);
+      calculation = "" //set all the previous value into a blank string 
+      // console.log(0)
+      inputField.value = 0 // input-field = 0
+      localStorage.setItem("calculation", calculation); //update the local storage
     }
 
     function result() {
-      if (!calculation) {
-        return 0;
-      } else {
-        calculation = eval(calculation);
-        console.log(calculation);
-        inputField.value = calculation
-        localStorage.setItem("calculation", calculation)
+      try{
+        if (!calculation) {
+          return 0;
+        } else {
+          calculation = eval(calculation);
+          console.log(calculation);
+          inputField.value = calculation
+          localStorage.setItem("calculation", calculation)
+        }
+      }catch(E){
+        inputField.value = 'ERROR'
       }
     }
 
